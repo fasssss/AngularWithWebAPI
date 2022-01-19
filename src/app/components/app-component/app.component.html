@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <button (click)="routeToHomePage()" mat-fab class="toolbar__button">
+    <img class="toolbar__logo" src="../../../assets/logo.jpg" alt="flower"/>
+  </button>
+  <button (click)="routeToMainPage()" mat-stroked-button class="toolbar__button">Heroes list</button>
+  <button (click)="routeToAboutPage()" mat-stroked-button class="toolbar__button">About</button>
+</mat-toolbar>
+<router-outlet routerLink="/list"></router-outlet>
+<router-outlet routerLink="/about"></router-outlet>

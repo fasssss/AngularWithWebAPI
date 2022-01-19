@@ -1,0 +1,13 @@
+.toolbar__button{
+  background-color: darkmagenta;
+  margin-right: 25px;
+}
+.toolbar__logo{
+  position: relative;
+  top: -17px;
+  left: -1px;
+  border-radius: 50%;
+  height: 58px;
+  width: 58px;
+}
+

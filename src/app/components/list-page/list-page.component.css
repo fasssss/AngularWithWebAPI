@@ -1,0 +1,82 @@
+h1{
+  margin-top: 20px;
+  text-align: center;
+}
+
+div.right-position{
+  display: flex;
+  justify-content: right;
+}
+
+div.one-row{
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+div.table-zone{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+div.table-buttons{
+  width: 90%;
+  padding: 20px;
+  justify-content: left;
+}
+
+div.table-buttons button{
+  margin-right: 20px;
+}
+
+table {
+  width: 90%;
+}
+
+th{
+  border-top: 1px solid currentColor;
+}
+
+.mat-column-name{
+  border-left: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  text-align: center;
+}
+
+.mat-column-age{
+  border-right: 1px solid currentColor;
+  text-align: center;
+}
+
+.mat-column-height{
+  border-right: 1px solid currentColor;
+  text-align: center;
+}
+
+.mat-column-superPowers{
+  border-right: 1px solid currentColor;
+  text-align: center;
+}
+
+.mat-column-superVillain{
+  border-right: 1px solid currentColor;
+  text-align: center;
+}
+
+.mat-column-heroPoints{
+  border-right: 1px solid currentColor;
+  text-align: center;
+}
+
+.table__row-selected{
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.table__row-deselected{
+  font-weight: normal;
+  background-color: white;
+}
