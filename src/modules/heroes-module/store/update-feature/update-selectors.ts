@@ -3,7 +3,7 @@ import {
   createSelector,
   MemoizedSelector
 } from '@ngrx/store';
-import { Hero } from "../../modules/heroes-module/models/hero";
+import { Hero } from "../../models/hero";
 import { updateState } from "./update-state";
 
 const getError = (state: updateState): any => state.error;

@@ -14,7 +14,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-create-new-modal',
   templateUrl: './create-new-modal.component.html',
-  styleUrls: ['./create-new-modal.component.css']
+  styleUrls: ['./create-new-modal.component.scss']
 })
 export class CreateNewModalComponent {
 

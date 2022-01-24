@@ -1,11 +1,5 @@
-import { postState } from "./post-feature/post-state";
-import { deleteState } from "./delete-feature/delete-state";
-import { fetchState } from "./fetch-feature/fetch-state";
-import {updateState} from "./update-feature/update-state";
+import { HeroesStoreState } from "../modules/heroes-module/store";
 
 export interface State {
-  postState: postState;
-  deleteState: deleteState;
-  fetchState: fetchState;
-  updateState: updateState;
+  heroesState: HeroesStoreState;
 }

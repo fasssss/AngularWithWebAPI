@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import {Observable, of} from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
-import { DataService } from "../../modules/heroes-module/services/data.service";
+import { DataService } from "../../services/data.service";
 import * as updateActions from "./update-actions"
 
 @Injectable()

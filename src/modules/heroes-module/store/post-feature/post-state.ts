@@ -1,4 +1,4 @@
-import {Hero} from "../../modules/heroes-module/models/hero";
+import {Hero} from "../../models/hero";
 
 export interface postState {
   hero: Hero | null;

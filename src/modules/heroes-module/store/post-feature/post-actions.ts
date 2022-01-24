@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Hero } from '../../modules/heroes-module/models/hero'
+import { Hero } from '../../models/hero'
 
 export enum PostActionsTypes{
   POST_REQUEST = 'Create request',

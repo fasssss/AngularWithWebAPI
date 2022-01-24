@@ -17,7 +17,7 @@ import {UpdateModalComponent} from "../modals/update-modal/update-modal.componen
 @Component({
   selector: 'app-main-page',
   templateUrl: './list-page.component.html',
-  styleUrls: ['./list-page.component.css'],
+  styleUrls: ['./list-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListPageComponent implements OnInit{

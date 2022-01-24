@@ -3,7 +3,7 @@ import {
   createSelector,
   MemoizedSelector
 } from '@ngrx/store';
-import { Hero } from "../../modules/heroes-module/models/hero";
+import { Hero } from "../../models/hero";
 import { fetchState } from "./fetch-state";
 
 const getHeroesList = (state: fetchState): Array<Hero> | null => state.heroesList;

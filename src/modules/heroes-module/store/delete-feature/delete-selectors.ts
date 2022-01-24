@@ -4,7 +4,7 @@ import {
   MemoizedSelector
 } from "@ngrx/store";
 
-import { Hero } from "../../modules/heroes-module/models/hero";
+import { Hero } from "../../models/hero";
 import { deleteState } from "./delete-state";
 
 const getHeroName = (state: deleteState) => state.heroName;

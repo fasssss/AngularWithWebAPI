@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Hero } from '../../modules/heroes-module/models/hero'
+import { Hero } from '../../models/hero'
 
 export enum UpdateActionsTypes{
   UPDATE_REQUEST = 'Update request',

@@ -1,6 +1,6 @@
 import { createSelector, MemoizedSelector } from '@ngrx/store';
-import { PostStoreSelectors } from "./post-feature";
-import { DeleteStoreSelectors } from "./delete-feature";
+import { PostStoreSelectors } from "../modules/heroes-module/store/post-feature";
+import { DeleteStoreSelectors } from "../modules/heroes-module/store/delete-feature";
 
 export const selectRootError: MemoizedSelector<object, any> = createSelector(
   PostStoreSelectors.selectPostFailure,
