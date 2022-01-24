@@ -13,6 +13,8 @@ import {
 import {PostStoreActions, FetchStoreActions, DeleteStoreActions, UpdateStoreActions} from "../../../../root-store"
 import {Observable, of} from "rxjs";
 import {UpdateModalComponent} from "../modals/update-modal/update-modal.component";
+import {Router} from "@angular/router";
+import {Actions} from "@ngrx/effects";
 
 @Component({
   selector: 'app-main-page',
@@ -22,7 +24,7 @@ import {UpdateModalComponent} from "../modals/update-modal/update-modal.componen
 })
 export class ListPageComponent implements OnInit{
 
-  displayedColumns: Array<string> = ["name", "age", "height", "heroPoints", "superPowers", "superVillain"];
+  displayedColumns: Array<string> = ["name", "age", "height", "heroPoints", "superPowers", "superVillain","Actions"];
   selectedRow?: Hero;
   heroFromModal: Hero = {name: '', age: 0, height: 0, superVillain: '', superPowers: '', heroPoints: 0,};
   heroesList$?: Observable<Array<Hero> | null>;
@@ -31,7 +33,8 @@ export class ListPageComponent implements OnInit{
 
   constructor(public dialog: MatDialog,
               private store$: Store<RootStoreState.State>,
-              private  cdr: ChangeDetectorRef) { }
+              private  cdr: ChangeDetectorRef,
+              private router: Router) { }
 
   ngOnInit() {
     this.store$.dispatch(new FetchStoreActions.FetchActionRequest({name: null}));
@@ -71,6 +74,16 @@ export class ListPageComponent implements OnInit{
     });
   }
 
+  handleDelete(row: Hero){
+    if(row !== undefined) {
+      this.store$.dispatch(new DeleteStoreActions.DeleteActionRequest({name: row.name!}));
+    }
+  }
+
+  handleUpdate(row: Hero){
+    this.router.navigateByUrl('/edit', {state: row});
+  }
+
   rowClickHandler(clickedRow: Hero){
     if(this.selectedRow === clickedRow){
       this.selectedRow = undefined;
@@ -81,27 +94,7 @@ export class ListPageComponent implements OnInit{
   }
 
   newItemClickHandler(){
-    this.heroFromModal = {name: '', age: 0, height: 0, superVillain: '', superPowers: '', heroPoints: 0,};
-    const dialogRef = this.dialog.open(CreateNewModalComponent,
-      {
-        width: '500px',
-        data: this.heroFromModal
-      });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-      if(result === 'Add'){
-        this.store$.dispatch(
-          new PostStoreActions.PostRequestAction({
-            name: this.heroFromModal.name!,
-            heroPoints: this.heroFromModal.heroPoints!,
-            age: this.heroFromModal.age!,
-            height: this.heroFromModal.height!,
-            superPowers: this.heroFromModal.superPowers!,
-            superVillain: this.heroFromModal.superVillain!
-            })
-        );
-      }
-    });
+    this.router.navigateByUrl('/edit');
   }
 
   refreshClickHandler(){
@@ -145,9 +138,5 @@ export class ListPageComponent implements OnInit{
     });
   }
 
-  removeClickHandler(){
-    if(this.selectedRow !== undefined) {
-      this.store$.dispatch(new DeleteStoreActions.DeleteActionRequest({name: this.selectedRow.name!}));
-    }
-  }
+
 }

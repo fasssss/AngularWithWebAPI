@@ -1,0 +1,14 @@
+.fields-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field{
+  width: 40%;
+  margin-left: 20px;
+}
+
+.field-disabled{
+  color: gray;
+}

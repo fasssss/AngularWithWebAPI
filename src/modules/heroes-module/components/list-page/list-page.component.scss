@@ -71,6 +71,12 @@ th{
   text-align: center;
 }
 
+.mat-column-Actions{
+  border-right: 1px solid currentColor;
+  text-align: center;
+  width: 20%;
+}
+
 .table__row-selected{
   font-weight: bold;
   background-color: lightgray;
@@ -78,5 +84,10 @@ th{
 
 .table__row-deselected{
   font-weight: normal;
-  background-color: white;
+  background-color: inherit;
+}
+
+button{
+  background-color: #8b008b;
+  margin: 5px;
 }

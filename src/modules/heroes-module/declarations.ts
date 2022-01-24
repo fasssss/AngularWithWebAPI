@@ -4,6 +4,7 @@ import {UpdateModalComponent} from "./components/modals/update-modal/update-moda
 import {ErrorCreateNewModalComponent} from "./components/modals/error-create-new-modal/error-create-new-modal.component";
 import {AboutPageComponent} from "./components/about-page/about-page.component";
 import {HomePageComponent} from "./components/home-page/home-page.component";
+import {HeroEditorComponent} from "./components/hero-editor/hero-editor.component";
 
 export const declarations = [
   ListPageComponent,
@@ -12,4 +13,5 @@ export const declarations = [
   ErrorCreateNewModalComponent,
   AboutPageComponent,
   HomePageComponent,
+  HeroEditorComponent,
 ]
