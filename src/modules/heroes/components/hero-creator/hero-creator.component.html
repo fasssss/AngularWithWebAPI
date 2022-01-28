@@ -3,10 +3,7 @@
   <p>Fill all fields to add a new hero to the list</p>
   <mat-form-field appearance="fill" class="field" >
     <mat-label>What's heroes name?</mat-label>
-    <input matInput [readonly]="isUpdate === true"
-           [(ngModel)]="data.name" [formControl]="nameFormControl"
-           [errorStateMatcher]="matcher"
-           [class.field-disabled]="isUpdate === true">
+    <input matInput [(ngModel)]="data.name" [formControl]="nameFormControl" [errorStateMatcher]="matcher">
   </mat-form-field>
   <mat-form-field appearance="fill" class="field">
     <mat-label>What's heroes age?</mat-label>

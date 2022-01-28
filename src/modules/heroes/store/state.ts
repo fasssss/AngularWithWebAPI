@@ -1,11 +1,18 @@
-import { postState } from "./post-feature/post-state";
-import { deleteState } from "./delete-feature/delete-state";
-import { fetchState } from "./fetch-feature/fetch-state";
-import { updateState } from "./update-feature/update-state";
+import {Hero} from "../models/hero";
 
 export interface State {
-  postState: postState;
-  deleteState: deleteState;
-  fetchState: fetchState;
-  updateState: updateState;
+  heroName: string | null;
+  hero: Hero | null;
+  heroesList: Hero[] | null;
+  isLoading: boolean;
+  error: string | null;
 }
+
+export const initialState = {
+  heroName: null,
+  hero: null,
+  heroesList: null,
+  isLoading: false,
+  error: null
+}
+

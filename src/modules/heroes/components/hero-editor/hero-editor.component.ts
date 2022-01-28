@@ -5,7 +5,7 @@ import {ErrorStateMatcher} from "@angular/material/core";
 import {Hero} from "../../models/hero";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {PostStoreActions, RootStoreState, UpdateStoreActions} from "../../../root-store";
+import {HeroesStoreActions, RootStoreState} from "../../../root-store";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,8 +21,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class HeroEditorComponent implements OnInit {
   data: Hero = {name: "", heroPoints: 0, height: 0, superVillain: "", superPowers: "", age: 0};
-  isUpdate: boolean = history.state.name !== undefined;
-  nameFormControl = new FormControl('', [Validators.required]);
   ageFormControl = new FormControl('', [Validators.required, Validators.min(0)]);
   heightFormControl = new FormControl('', [Validators.required, Validators.min(0)]);
   superPowersFormControl = new FormControl('', [Validators.required]);
@@ -36,40 +34,21 @@ export class HeroEditorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("State", this.isUpdate)
-    if(this.isUpdate){
-      this.data = history.state;
-    }
-
-    console.log(history.state)
+    this.data = history.state;
   }
 
   onSaveClick = () =>{
 
-    if(this.isUpdate === false){
-      this.store$.dispatch(
-        new PostStoreActions.PostRequestAction({
-            name: this.data.name!,
-            height: this.data.height!,
-            age: this.data.age!,
-            heroPoints: this.data.heroPoints!,
-            superPowers: this.data.superPowers!,
-            superVillain: this.data.superVillain!,
-          }
-        )
-      );
-    }else{
-      this.store$.dispatch(
-        new UpdateStoreActions.UpdateRequestAction({
-          name: this.data.name!,
-          height: this.data.height!,
-          age: this.data.age!,
-          heroPoints: this.data.heroPoints!,
-          superPowers: this.data.superPowers!,
-          superVillain: this.data.superVillain!,
-        })
-      );
-    }
+    this.store$.dispatch(
+      new HeroesStoreActions.UpdateRequestAction({
+        name: this.data.name!,
+        height: this.data.height!,
+        age: this.data.age!,
+        heroPoints: this.data.heroPoints!,
+        superPowers: this.data.superPowers!,
+        superVillain: this.data.superVillain!,
+      })
+    );
     this.router.navigateByUrl('/list');
   }
 
