@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import HeroesModule from "../../modules/heroes-module/heroes.module";
 import {AppRouterModule} from "../../modules/routing-module/app-router.module";
 
+
 export const imports = [
   BrowserModule,
   BrowserAnimationsModule,

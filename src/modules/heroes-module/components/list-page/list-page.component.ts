@@ -82,8 +82,8 @@ export class ListPageComponent implements OnInit{
     this.router.navigateByUrl('/edit', {state: row});
   }
 
-  newItemClickHandler(){
-    this.router.navigateByUrl('/edit');
+  handleCreate(){
+    this.router.navigateByUrl('/create');
   }
 
   refreshClickHandler(){
