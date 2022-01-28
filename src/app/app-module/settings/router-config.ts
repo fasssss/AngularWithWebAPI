@@ -1,7 +1,7 @@
-import {ListPageComponent} from "../../../modules/heroes-module/components/list-page/list-page.component";
-import {HomePageComponent} from "../../components/home-page/home-page.component";
-import {AboutPageComponent} from "../../components/about-page/about-page.component";
-import HeroesModule from "../../../modules/heroes-module/heroes.module";
+import {ListPageComponent} from "../../../modules/heroes/components/list-page/list-page.component";
+import {HomePageComponent} from "../components/home-page/home-page.component";
+import {AboutPageComponent} from "../components/about-page/about-page.component";
+import HeroesModule from "../../../modules/heroes/heroes.module";
 
 export const routerConfig = [
   {
@@ -14,7 +14,7 @@ export const routerConfig = [
   },
   {
     path: "list",
-    loadChildren: () => import("../../../modules/heroes-module/heroes.module")
+    loadChildren: () => import("../../../modules/heroes/heroes.module")
       .then(mod => mod.default),
   },
   {

@@ -7,7 +7,7 @@ import {RouterModule} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import HeroesModule from "../../../modules/heroes-module/heroes.module";
+import HeroesModule from "../../../modules/heroes/heroes.module";
 import {RoutingModule} from "./routing.module";
 
 export const imports = [
