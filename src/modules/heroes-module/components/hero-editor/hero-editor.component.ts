@@ -5,7 +5,7 @@ import {ErrorStateMatcher} from "@angular/material/core";
 import {Hero} from "../../models/hero";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {PostStoreActions, RootStoreState, UpdateStoreActions} from "../../../../root-store";
+import {PostStoreActions, RootStoreState, UpdateStoreActions} from "../../../root-store";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -44,7 +44,7 @@ export class HeroEditorComponent implements OnInit {
     console.log(history.state)
   }
 
-  acceptClickHandler = () =>{
+  onSaveClick = () =>{
 
     if(this.isUpdate === false){
       this.store$.dispatch(

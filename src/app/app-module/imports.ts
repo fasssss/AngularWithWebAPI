@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {RootStoreModule} from "../../root-store";
+import {RootStoreModule} from "../../modules/root-store";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {RouterModule} from "@angular/router";

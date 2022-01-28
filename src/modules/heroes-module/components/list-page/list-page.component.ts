@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { Hero } from "../../models/hero";
 import {MatDialog} from "@angular/material/dialog";
-import {CreateNewModalComponent} from "../modals/create-new-modal/create-new-modal.component";
 import {Store} from "@ngrx/store";
 import {
   DeleteStoreSelectors,
@@ -9,10 +8,9 @@ import {
   PostStoreSelectors,
   RootStoreState,
   UpdateStoreSelectors
-} from "../../../../root-store";
-import {PostStoreActions, FetchStoreActions, DeleteStoreActions, UpdateStoreActions} from "../../../../root-store"
+} from "../../../root-store";
+import {PostStoreActions, FetchStoreActions, DeleteStoreActions, UpdateStoreActions} from "../../../root-store"
 import {Observable, of} from "rxjs";
-import {UpdateModalComponent} from "../modals/update-modal/update-modal.component";
 import {Router} from "@angular/router";
 import {Actions} from "@ngrx/effects";
 
@@ -84,15 +82,6 @@ export class ListPageComponent implements OnInit{
     this.router.navigateByUrl('/edit', {state: row});
   }
 
-  rowClickHandler(clickedRow: Hero){
-    if(this.selectedRow === clickedRow){
-      this.selectedRow = undefined;
-    }else{
-      this.selectedRow = clickedRow;
-      console.log(this.selectedRow);
-    }
-  }
-
   newItemClickHandler(){
     this.router.navigateByUrl('/edit');
   }
@@ -104,39 +93,4 @@ export class ListPageComponent implements OnInit{
       this.heroesList = res!;
       this.cdr.detectChanges();});
   }
-
-  updateItemHandler(){
-    this.heroFromModal = {
-      name: this.selectedRow?.name,
-      age: this.selectedRow?.age,
-      height: this.selectedRow?.height,
-      superVillain: this.selectedRow?.superVillain,
-      superPowers: this.selectedRow?.superPowers,
-      heroPoints: this.selectedRow?.heroPoints,
-    };
-
-    const dialogRef = this.dialog.open(UpdateModalComponent,
-      {
-        width: '500px',
-        data: this.heroFromModal
-      });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-      if(result === 'Update'){
-        this.updatedHero = this.selectedRow;
-        this.store$.dispatch(
-          new UpdateStoreActions.UpdateRequestAction({
-            name: this.heroFromModal.name!,
-            heroPoints: this.heroFromModal.heroPoints!,
-            age: this.heroFromModal.age!,
-            height: this.heroFromModal.height!,
-            superPowers: this.heroFromModal.superPowers!,
-            superVillain: this.heroFromModal.superVillain!
-          })
-        );
-      }
-    });
-  }
-
-
 }

@@ -30,18 +30,20 @@
   </mat-form-field>
 </div>
 
-<button mat-raised-button class="accept"
-        [disabled]="nameFormControl.hasError('required')||
-          this.ageFormControl.hasError('required') ||
-          this.ageFormControl.hasError('min') ||
-          this.heightFormControl.hasError('required') ||
-          this.heightFormControl.hasError('min') ||
-          this.superPowersFormControl.hasError('required') ||
-          this.superVillainFormControl.hasError('required') ||
-          this.heroPointsFormControl.hasError('required') ||
-          this.heroPointsFormControl.hasError('min')"
-        (click)="acceptClickHandler()"
->
-  Add
-</button>
-<button mat-raised-button class="close" (click)="closeClickHandler()">Close</button>
+<div class="hero-editor__buttons">
+  <button mat-raised-button class="accept"
+          [disabled]="nameFormControl.hasError('required')||
+            this.ageFormControl.hasError('required') ||
+            this.ageFormControl.hasError('min') ||
+            this.heightFormControl.hasError('required') ||
+            this.heightFormControl.hasError('min') ||
+            this.superPowersFormControl.hasError('required') ||
+            this.superVillainFormControl.hasError('required') ||
+            this.heroPointsFormControl.hasError('required') ||
+            this.heroPointsFormControl.hasError('min')"
+          (click)="onSaveClick()"
+  >
+    Add
+  </button>
+  <button mat-raised-button class="close" (click)="closeClickHandler()">Close</button>
+</div>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateNewModalComponent } from './create-new-modal.component';
+import { HeroesTableComponent } from './heroes-table.component';
 
-describe('CreateNewModalComponent', () => {
-  let component: CreateNewModalComponent;
-  let fixture: ComponentFixture<CreateNewModalComponent>;
+describe('HeroesTableComponent', () => {
+  let component: HeroesTableComponent;
+  let fixture: ComponentFixture<HeroesTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateNewModalComponent ]
+      declarations: [ HeroesTableComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateNewModalComponent);
+    fixture = TestBed.createComponent(HeroesTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
