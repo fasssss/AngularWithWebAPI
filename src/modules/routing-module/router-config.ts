@@ -4,29 +4,39 @@ import {HomePageComponent} from "../../app/components/home-page/home-page.compon
 import {HeroCreatorComponent} from "../heroes-module/components/hero-creator/hero-creator.component";
 import {HeroEditorComponent} from "../heroes-module/components/hero-editor/hero-editor.component";
 
-export const routeConfig = [
-  {
-    path: 'list',
-    component: ListPageComponent,
-  },
-  {
-    path: "about",
-    component: AboutPageComponent,
-  },
-  {
-    path: "home",
-    component: HomePageComponent,
-  },
-  {
-    path: "create",
-    component: HeroCreatorComponent,
-  },
-  {
-    path: "edit",
-    component: HeroEditorComponent,
-  },
-  {
-    path: '',
-    redirectTo: "/home",
-    pathMatch: "full"
-  }];
+// export const routeConfig = [
+//   {
+//     path: 'list',
+//     component: ListPageComponent,
+//   },
+//   {
+//     path: "about",
+//     component: AboutPageComponent,
+//   },
+//   {
+//     path: "home",
+//     component: HomePageComponent,
+//   },
+//   {
+//     path: "create",
+//     component: HeroCreatorComponent,
+//   },
+//   {
+//     path: "edit",
+//     component: HeroEditorComponent,
+//   },
+//   {
+//     path: '',
+//     redirectTo: "/home",
+//     pathMatch: "full"
+//   }];
+
+// export const routeConfig = [
+//   {
+//     path: "create",
+//     component: HeroCreatorComponent,
+//   },
+//   {
+//     path: "edit",
+//     component: HeroEditorComponent,
+//   }];

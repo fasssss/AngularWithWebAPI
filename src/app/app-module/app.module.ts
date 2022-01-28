@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from '../components/app-component/app.component';
-import {imports} from "./imports";
-import {providers} from "./providers";
-import {declarations} from "./declarations";
+import {imports} from "./settings/imports";
+import {providers} from "./settings/providers";
+import {declarations} from "./settings/declarations";
 
 @NgModule({
   declarations: declarations,

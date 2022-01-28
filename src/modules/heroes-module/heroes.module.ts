@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {ListPageComponent} from "./components/list-page/list-page.component";
-import {imports} from "./imports";
-import {declarations} from "./declarations";
+import {imports} from "./settings/imports";
+import {declarations} from "./settings/declarations";
 
 @NgModule({
   declarations: declarations,
