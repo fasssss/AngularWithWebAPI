@@ -22,8 +22,10 @@ export class ListPageComponent implements OnInit{
   displayedColumns: Array<string> = ["name", "age", "height", "heroPoints", "superPowers", "superVillain","Actions"];
   selectedRow?: Hero;
   heroFromModal: Hero = {name: '', age: 0, height: 0, superVillain: '', superPowers: '', heroPoints: 0,};
+  searchField: string = "";
   heroesList$?: Observable<Array<Hero> | null>;
   heroesList: Hero[] = [];
+  displayHeroList: Hero[] = [];
   updatedHero: Hero | undefined;
 
   constructor(public dialog: MatDialog,
@@ -37,11 +39,13 @@ export class ListPageComponent implements OnInit{
 
     this.heroesList$.subscribe(res => {
       this.heroesList = res!;
+      this.displayHeroList = this.heroesList;
       this.cdr.detectChanges();});
 
     this.store$.select(HeroesStoreSelector.selectHero).subscribe(res => {
       if (res !== null) {
         this.heroesList = new Array(...this.heroesList, res);
+        this.displayHeroList = this.heroesList;
         this.cdr.detectChanges();
       }
     });
@@ -55,6 +59,7 @@ export class ListPageComponent implements OnInit{
     this.store$.select(HeroesStoreSelector.selectHeroName).subscribe( res =>{
       if(res !== null){
         this.heroesList = this.heroesList.filter(item => item.name !== res);
+        this.displayHeroList = this.heroesList;
       }
     });
 
@@ -64,9 +69,15 @@ export class ListPageComponent implements OnInit{
         let index = copyArray.indexOf(this.updatedHero);
         copyArray[index] = res;
         this.heroesList = copyArray;
+        this.displayHeroList = this.heroesList;
         this.cdr.detectChanges();
       }
     });
+  }
+
+  handleSearch(){
+    this.displayHeroList = this.heroesList;
+    this.displayHeroList = this.heroesList.filter(hero => hero.name?.startsWith(this.searchField));
   }
 
   handleDelete(row: Hero){
@@ -88,6 +99,7 @@ export class ListPageComponent implements OnInit{
     this.heroesList$ = this.store$.select(HeroesStoreSelector.selectHeroesList);
     this.heroesList$.subscribe(res => {
       this.heroesList = res!;
+      this.displayHeroList = this.heroesList;
       this.cdr.detectChanges();});
   }
 }

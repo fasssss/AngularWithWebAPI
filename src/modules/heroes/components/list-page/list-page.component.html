@@ -3,8 +3,20 @@
   <div class="one-row right-position">
     <button mat-raised-button (click)="refreshClickHandler()">Refresh</button>
   </div>
+
+  <mat-form-field class="example-form-field" appearance="fill">
+    <mat-label>Heroes name</mat-label>
+    <input matInput type="text" (change)="handleSearch()" [(ngModel)]="searchField">
+    <button matSuffix mat-icon-button aria-label="Search" (click)="handleSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button *ngIf="searchField" matSuffix mat-icon-button aria-label="Clear" (click)="searchField=''; handleSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
   <app-heroes-table
-    [heroesList]="heroesList"
+    [heroesList]="displayHeroList"
     [displayedColumns]="displayedColumns"
     (updateEvent)="handleUpdate($event)"
     (deleteEvent)="handleDelete($event)">
