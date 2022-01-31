@@ -13,7 +13,7 @@ export class AppComponent {
 
   routeToMainPage()
   {
-    this.router.navigateByUrl('/list');
+    this.router.navigateByUrl('/heroes');
   }
 
   routeToAboutPage(){
