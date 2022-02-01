@@ -4,14 +4,14 @@ import {ListPageComponent} from "../components/list-page/list-page.component";
 
 export const routerConfig = [
   {
-    path: "create",
+    path: '',
+    component: ListPageComponent
+  },
+  {
+    path: 'create',
     component: HeroCreatorComponent,
   },
   {
-    path: "edit",
+    path: 'edit',
     component: HeroEditorComponent,
-  },
-  {
-    path: '',
-    component: ListPageComponent
-  }];
+  },];

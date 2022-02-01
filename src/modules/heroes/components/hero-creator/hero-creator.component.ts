@@ -50,10 +50,10 @@ export class HeroCreatorComponent implements OnInit {
         }
       )
     );
-    this.router.navigateByUrl('/list');
+    this.router.navigateByUrl('heroes');
   }
 
   closeClickHandler = () =>{
-    this.router.navigateByUrl('/list');
+    this.router.navigateByUrl('heroes');
   }
 }

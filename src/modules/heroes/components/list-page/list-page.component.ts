@@ -87,11 +87,13 @@ export class ListPageComponent implements OnInit{
   }
 
   handleUpdate(row: Hero){
-    this.router.navigateByUrl('/edit', {state: row});
+    console.log(this.router.config);
+    this.router.navigateByUrl('heroes/edit', {state: row});
   }
 
   handleCreate(){
-    this.router.navigateByUrl('/create');
+    console.log(this.router.config);
+    this.router.navigateByUrl('heroes/create');
   }
 
   refreshClickHandler(){

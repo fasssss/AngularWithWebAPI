@@ -49,10 +49,10 @@ export class HeroEditorComponent implements OnInit {
         superVillain: this.data.superVillain!,
       })
     );
-    this.router.navigateByUrl('/list');
+    this.router.navigateByUrl('heroes');
   }
 
   closeClickHandler = () =>{
-    this.router.navigateByUrl('/list');
+    this.router.navigateByUrl('heroes');
   }
 }
