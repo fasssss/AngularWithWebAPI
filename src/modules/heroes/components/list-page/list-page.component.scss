@@ -6,10 +6,11 @@ h1{
 div.right-position{
   display: flex;
   justify-content: right;
+  width: 50%;
+  margin-right: 9%;
 }
 
 div.one-row{
-  width: 90%;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -94,4 +95,15 @@ button{
 
 .example-form-field{
   width: 600px;
+}
+.above-block{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 90%;
+}
+
+.search-block{
+  display: flex;
+  width: 50%;
 }

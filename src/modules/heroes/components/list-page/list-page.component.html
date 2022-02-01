@@ -1,9 +1,7 @@
 <h1>Heroes list</h1>
 <div class="table-zone">
-  <div class="one-row right-position">
-    <button mat-raised-button (click)="refreshClickHandler()">Refresh</button>
-  </div>
-
+<div class="above-block">
+  <div class="search-block">
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Heroes name</mat-label>
     <input matInput type="text" (change)="handleSearch()" [(ngModel)]="searchField">
@@ -14,7 +12,11 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-
+  </div>
+  <div class="one-row right-position">
+    <button mat-raised-button (click)="refreshClickHandler()">Refresh</button>
+  </div>
+</div>
   <app-heroes-table
     [heroesList]="displayHeroList"
     [displayedColumns]="displayedColumns"
