@@ -9,6 +9,9 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import HeroesModule from "../../modules/heroes/heroes.module";
 import {RoutingModule} from "./routing.module";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {InMemoryDataService} from "../../modules/heroes/services/in-memory-data.service";
+import {environment} from "../../environments/environment";
 
 export const imports = [
   BrowserModule,
@@ -21,4 +24,6 @@ export const imports = [
   MatIconModule,
   FormsModule,
   HttpClientModule,
+  environment.production ? [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,
+    {passThruUnknownUrl: true}),
 ]
