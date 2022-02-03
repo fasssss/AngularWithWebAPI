@@ -22,11 +22,13 @@ export class ListPageComponent implements OnInit{
   displayedColumns: Array<string> = ["name", "age", "height", "heroPoints", "superPowers", "superVillain","Actions"];
   selectedRow?: Hero;
   heroFromModal: Hero = {name: '', age: 0, height: 0, superVillain: '', superPowers: '', heroPoints: 0,};
-  searchField: string = "";
   heroesList$?: Observable<Array<Hero> | null>;
   heroesList: Hero[] = [];
   displayHeroList: Hero[] = [];
   updatedHero: Hero | undefined;
+  currentPage: number = 1;
+  pageCapacity: number = 2;
+  searchFilter: string = '';
 
   constructor(public dialog: MatDialog,
               private store$: Store<RootStoreState.State>,
@@ -39,13 +41,13 @@ export class ListPageComponent implements OnInit{
 
     this.heroesList$.subscribe(res => {
       this.heroesList = res!;
-      this.displayHeroList = this.heroesList;
+      if(this.heroesList){this.formDisplayList();}
       this.cdr.detectChanges();});
 
     this.store$.select(HeroesStoreSelector.selectHero).subscribe(res => {
       if (res !== null) {
         this.heroesList = new Array(...this.heroesList, res);
-        this.displayHeroList = this.heroesList;
+        this.formDisplayList();
         this.cdr.detectChanges();
       }
     });
@@ -59,7 +61,7 @@ export class ListPageComponent implements OnInit{
     this.store$.select(HeroesStoreSelector.selectHeroName).subscribe( res =>{
       if(res !== null){
         this.heroesList = this.heroesList.filter(item => item.name !== res);
-        this.displayHeroList = this.heroesList;
+        this.formDisplayList();
       }
     });
 
@@ -69,15 +71,14 @@ export class ListPageComponent implements OnInit{
         let index = copyArray.indexOf(this.updatedHero);
         copyArray[index] = res;
         this.heroesList = copyArray;
-        this.displayHeroList = this.heroesList;
+        this.formDisplayList();
         this.cdr.detectChanges();
       }
     });
   }
 
   handleSearch(){
-    this.displayHeroList = this.heroesList;
-    this.displayHeroList = this.heroesList.filter(hero => hero.name?.startsWith(this.searchField));
+    this.formDisplayList();
   }
 
   handleDelete(row: Hero){
@@ -101,7 +102,25 @@ export class ListPageComponent implements OnInit{
     this.heroesList$ = this.store$.select(HeroesStoreSelector.selectHeroesList);
     this.heroesList$.subscribe(res => {
       this.heroesList = res!;
-      this.displayHeroList = this.heroesList;
+      this.formDisplayList();
       this.cdr.detectChanges();});
+  }
+
+  handlePrevPage(){
+    this.currentPage--;
+    this.formDisplayList();
+    console.log(this.currentPage);
+  }
+
+  handleNextPage(){
+    this.currentPage++;
+    this.formDisplayList();
+    console.log(this.currentPage);
+  }
+
+  formDisplayList(){
+    this.displayHeroList = this.heroesList.filter(hero => hero.name?.startsWith(this.searchFilter));
+    let showStart = this.displayHeroList.length / this.pageCapacity * this.currentPage;
+    this.displayHeroList = this.displayHeroList.slice(showStart - 1, showStart + this.pageCapacity - 1);
   }
 }

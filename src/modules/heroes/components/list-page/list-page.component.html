@@ -4,11 +4,11 @@
   <div class="search-block">
   <mat-form-field class="example-form-field" appearance="fill">
     <mat-label>Heroes name</mat-label>
-    <input matInput type="text" (change)="handleSearch()" [(ngModel)]="searchField">
+    <input matInput type="text" (change)="handleSearch()" [(ngModel)]="searchFilter">
     <button matSuffix mat-icon-button aria-label="Search" (click)="handleSearch()">
       <mat-icon>search</mat-icon>
     </button>
-    <button *ngIf="searchField" matSuffix mat-icon-button aria-label="Clear" (click)="searchField=''; handleSearch()">
+    <button *ngIf="searchFilter" matSuffix mat-icon-button aria-label="Clear" (click)="searchFilter=''; handleSearch()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
@@ -23,8 +23,13 @@
     (updateEvent)="handleUpdate($event)"
     (deleteEvent)="handleDelete($event)">
   </app-heroes-table>
-
-  <div class="table-buttons">
-    <button mat-raised-button (click)="handleCreate()">New item</button>
+  <div class="bottom-block">
+    <div class="table-buttons">
+      <button mat-raised-button (click)="handleCreate()">New item</button>
+    </div>
+    <div class="right-position">
+      <button mat-raised-button *ngIf="currentPage > 1" (click)="handlePrevPage()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+      <button mat-raised-button *ngIf="currentPage < pageCapacity" (click)="handleNextPage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
   </div>
 </div>
